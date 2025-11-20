@@ -1,7 +1,8 @@
-package com.devblo.springsection4.config;
+package com.devblo.springsection6.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Profile;
 import org.springframework.security.authentication.password.CompromisedPasswordChecker;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.crypto.factory.PasswordEncoderFactories;
@@ -12,7 +13,8 @@ import org.springframework.security.web.authentication.password.HaveIBeenPwnedRe
 import static org.springframework.security.config.Customizer.withDefaults;
 
 @Configuration
-public class SecurityConfig {
+@Profile("prod")
+public class SecurityProdConfig {
 
     @Bean
     SecurityFilterChain defaultSecurityFilterChain(HttpSecurity http) throws Exception {
